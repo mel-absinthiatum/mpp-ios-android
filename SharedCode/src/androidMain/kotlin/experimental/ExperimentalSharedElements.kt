@@ -9,7 +9,7 @@ actual fun experimentalGlobalFunction(): String {
 }
 
 // Global class.
-actual class ExperimentalGlobalClass {
+actual class ExperimentalGlobalEmptyClass {
     override fun toString(): String {
         return "android global class"
     }
@@ -21,3 +21,34 @@ actual object ExperimentalGlobalObject {
         return "android global object"
     }
 }
+
+// Global Annotation class.
+actual annotation class ExperimentalAnnotationClass
+
+
+/* Hierarchical elements. */
+
+// Global class with fields.
+actual class ExperimentalGlobalClass {
+    actual val nestedProperty = 12
+    actual fun nestedFunction(): String {
+        return "android nested function"
+    }
+
+    actual class nestedClass {
+        actual fun tooDeepFunction(): String {
+            return "android too deep function"
+        }
+    }
+}
+
+
+/* Typealiases usage. */
+
+// Global class with fields.
+actual typealias ExperimentalTypealiasedClass = ExperimentalGlobalClass
+
+// Typealiased object.
+actual typealias ExperimentalTypealiasedObject = ExperimentalGlobalObject
+
+
